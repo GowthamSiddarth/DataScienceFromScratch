@@ -35,6 +35,11 @@ def get_users_per_interest(interests):
     return users_per_interest
 
 
+def get_users_with_matching_interests(user_id, interests_per_user, users_per_interest):
+    return Counter([interested_user_id for interest in interests_per_user[user_id] for interested_user_id in
+                    users_per_interest[interest] if interested_user_id != user_id])
+
+
 def main():
     users = [
         {"id": 0, "name": "Hero"},
@@ -73,10 +78,11 @@ def main():
     print(friends_of_friends_example_user)
 
     interests_per_user = get_interests_per_user(interests)
-    print(interests_per_user)
-
     users_per_interest = get_users_per_interest(interests)
-    print(users_per_interest)
+
+    users_with_matching_interests = get_users_with_matching_interests(example_user['id'], interests_per_user,
+                                                                      users_per_interest)
+    print(users_with_matching_interests)
 
 
 if __name__ == '__main__':
