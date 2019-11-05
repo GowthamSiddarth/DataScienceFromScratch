@@ -26,6 +26,15 @@ def get_interests_per_user(interests):
     return interests_per_user
 
 
+def get_users_per_interest(interests):
+    users_per_interest = defaultdict(list)
+
+    for user_id, interest in interests:
+        users_per_interest[interest].append(user_id)
+
+    return users_per_interest
+
+
 def main():
     users = [
         {"id": 0, "name": "Hero"},
@@ -65,6 +74,9 @@ def main():
 
     interests_per_user = get_interests_per_user(interests)
     print(interests_per_user)
+
+    users_per_interest = get_users_per_interest(interests)
+    print(users_per_interest)
 
 
 if __name__ == '__main__':
