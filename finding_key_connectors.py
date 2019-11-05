@@ -27,9 +27,14 @@ def construct_friends_for_users(users, friendships):
     return users
 
 
-def get_total_connections(users): return functools.reduce(
+def get_total_num_of_connections(users): return functools.reduce(
     lambda acc, user: acc + len(user.get('friends', [])), users, 0)
 
 
+def get_mean_connections(total_num_of_connections, num_of_users): return total_num_of_connections / num_of_users
+
+
 users = construct_friends_for_users(users, friendships)
-print(get_total_connections(users))
+total_num_of_connections = get_total_num_of_connections(users)
+mean_connections = get_mean_connections(total_num_of_connections, len(users))
+print(mean_connections)
