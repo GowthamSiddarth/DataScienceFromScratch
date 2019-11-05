@@ -19,6 +19,10 @@ def get_salaries_per_tenure(salaries_and_tenures):
     return salaries_per_tenure
 
 
+def get_mean_salary_per_tenure(salaries_per_tenure):
+    return {tenure: sum(salaries) / len(salaries) for tenure, salaries in salaries_per_tenure.items()}
+
+
 def main():
     salaries_and_tenures = [(83000, 8.7), (88000, 8.1),
                             (48000, 0.7), (76000, 6),
@@ -28,6 +32,9 @@ def main():
 
     salaries_per_tenure = get_salaries_per_tenure(salaries_and_tenures)
     print(salaries_per_tenure)
+
+    mean_salary_per_tenure = get_mean_salary_per_tenure(salaries_per_tenure)
+    print(mean_salary_per_tenure)
 
 
 if __name__ == '__main__':
