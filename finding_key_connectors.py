@@ -24,6 +24,11 @@ def get_max_connection_size(users): return functools.reduce(
     0)
 
 
+def get_friends_of_friends(user_id, users):
+    return set(friend_of_friend for friend in users[user_id]['friends'] for friend_of_friend in users[friend]['friends']
+               if user_id != friend_of_friend and friend_of_friend not in users[user_id]['friends'])
+
+
 def main():
     users = [
         {"id": 0, "name": "Hero"},
@@ -46,8 +51,11 @@ def main():
 
     total_num_of_connections = get_total_num_of_connections(users)
     mean_connections = get_mean_connections(total_num_of_connections, len(users))
-
     print(mean_connections)
+
+    example_user = users[3]
+    friends_of_friends_example_user = get_friends_of_friends(example_user['id'], users)
+    print(friends_of_friends_example_user)
 
 
 if __name__ == '__main__':
