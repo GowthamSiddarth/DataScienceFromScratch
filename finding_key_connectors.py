@@ -19,6 +19,11 @@ def get_total_num_of_connections(users): return functools.reduce(
 def get_mean_connections(total_num_of_connections, num_of_users): return total_num_of_connections / num_of_users
 
 
+def get_max_connection_size(users): return functools.reduce(
+    lambda max_size, user: max_size if max_size > len(user.get('friends', [])) else len(user.get('friends', [])), users,
+    0)
+
+
 def main():
     users = [
         {"id": 0, "name": "Hero"},
@@ -36,6 +41,9 @@ def main():
                    (4, 5), (5, 6), (5, 7), (6, 8), (7, 8), (8, 9)]
 
     users = construct_friends_for_users(users, friendships)
+    max_connection_size = get_max_connection_size(users)
+    print(max_connection_size)
+
     total_num_of_connections = get_total_num_of_connections(users)
     mean_connections = get_mean_connections(total_num_of_connections, len(users))
 
