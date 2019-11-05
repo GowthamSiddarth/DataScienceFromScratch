@@ -1,4 +1,5 @@
 import functools
+from collections import Counter
 
 
 def construct_friends_for_users(users, friendships):
@@ -25,8 +26,9 @@ def get_max_connection_size(users): return functools.reduce(
 
 
 def get_friends_of_friends(user_id, users):
-    return set(friend_of_friend for friend in users[user_id]['friends'] for friend_of_friend in users[friend]['friends']
-               if user_id != friend_of_friend and friend_of_friend not in users[user_id]['friends'])
+    return Counter(friend_of_friend for friend in users[user_id]['friends']
+                   for friend_of_friend in users[friend]['friends'] if user_id != friend_of_friend and
+                   friend_of_friend not in users[user_id]['friends'])
 
 
 def main():
