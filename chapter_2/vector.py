@@ -29,7 +29,7 @@ def magnitude(vector): return math.sqrt(sum_of_squares(vector))
 def squared_distance(vector_1, vector_2): return sum_of_squares(vector_subtract(vector_1, vector_2))
 
 
-def distance(vector_1, vector_2): return math.sqrt(squared_distance(vector_1, vector_2))
+def distance(vector_1, vector_2): return magnitude(vector_subtract(vector_1, vector_2))
 
 
 def main():
