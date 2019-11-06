@@ -11,7 +11,7 @@ def make_matrix(num_of_rows, num_of_cols, generate_elem):
     return [[generate_elem(row_idx, col_idx) for col_idx in range(num_of_cols)] for row_idx in range(num_of_rows)]
 
 
-def is_diagonal_elem(row_idx, col_idx): return row_idx == col_idx
+def is_diagonal_elem(row_idx, col_idx, elem): return elem if row_idx == col_idx else 0
 
 
 def main():
