@@ -29,6 +29,9 @@ def magnitude(vector): return math.sqrt(sum_of_squares(vector))
 def squared_distance(vector_1, vector_2): return sum_of_squares(vector_subtract(vector_1, vector_2))
 
 
+def distance(vector_1, vector_2): return math.sqrt(squared_distance(vector_1, vector_2))
+
+
 def main():
     vectors = [[1, 2, 3], [4, 5, 6]]
     sum_of_vectors = vector_sum(vectors)
@@ -51,6 +54,9 @@ def main():
     example_vector_2 = [2, 4, 5]
     squared_distance_of_vectors = squared_distance(example_vector_1, example_vector_2)
     print(squared_distance_of_vectors)
+
+    distance_between_vectors = distance(example_vector_1, example_vector_2)
+    print(distance_between_vectors)
 
 
 if __name__ == '__main__':
