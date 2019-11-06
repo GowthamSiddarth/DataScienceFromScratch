@@ -5,6 +5,9 @@ import math
 def vector_add(vector_1, vector_2): return [vector_i + vector_j for vector_i, vector_j in zip(vector_1, vector_2)]
 
 
+def vector_subtract(vector_1, vector_2): return [vector_i - vector_j for vector_i, vector_j in zip(vector_1, vector_2)]
+
+
 def vector_dot(vector_1, vector_2): return sum([vector_i * vector_j for vector_i, vector_j in zip(vector_1, vector_2)])
 
 
@@ -23,6 +26,9 @@ def sum_of_squares(vector): return vector_dot(vector, vector)
 def magnitude(vector): return math.sqrt(sum_of_squares(vector))
 
 
+def squared_distance(vector_1, vector_2): return sum_of_squares(vector_subtract(vector_1, vector_2))
+
+
 def main():
     vectors = [[1, 2, 3], [4, 5, 6]]
     sum_of_vectors = vector_sum(vectors)
@@ -35,12 +41,16 @@ def main():
     dot_product_of_vectors = dot_product(vectors)
     print(dot_product_of_vectors)
 
-    example_vector = [1, 4, 9]
-    sum_of_squares_of_vector = sum_of_squares(example_vector)
+    example_vector_1 = [1, 4, 9]
+    sum_of_squares_of_vector = sum_of_squares(example_vector_1)
     print(sum_of_squares_of_vector)
 
-    magnitude_of_vector = magnitude(example_vector)
+    magnitude_of_vector = magnitude(example_vector_1)
     print(magnitude_of_vector)
+
+    example_vector_2 = [2, 4, 5]
+    squared_distance_of_vectors = squared_distance(example_vector_1, example_vector_2)
+    print(squared_distance_of_vectors)
 
 
 if __name__ == '__main__':
