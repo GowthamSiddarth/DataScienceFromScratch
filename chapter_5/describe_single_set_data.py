@@ -32,11 +32,14 @@ def mode(v):
     return [item[0] for item in sorted_counts if item[1] == max_value]
 
 
+def data_range(v): return max(v) - min(v)
+
+
 def main():
     random.seed(42)
     num_of_friends = [random.randint(1, 204) for _ in range(100)]
-    num_of_people = range(101)
-    plot_friends_vs_people(num_of_friends, num_of_people)
+    # num_of_people = range(101)
+    # plot_friends_vs_people(num_of_friends, num_of_people)
 
     mean_num_of_friends = mean(num_of_friends)
     print(mean_num_of_friends)
@@ -50,7 +53,11 @@ def main():
 
     mode_num_of_friends = mode(num_of_friends)
     print(mode_num_of_friends)
-    plt.show()
+
+    data_range_num_of_friends = data_range(num_of_friends)
+    print(data_range_num_of_friends)
+
+    # plt.show()
 
 
 if __name__ == '__main__':
