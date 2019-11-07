@@ -1,4 +1,4 @@
-import random
+import random, math
 from collections import Counter
 from matplotlib import pyplot as plt
 
@@ -45,6 +45,9 @@ def dev_from_mean(v):
 def variance(v): return sum_of_squares(dev_from_mean(v)) / (len(v) - 1)
 
 
+def standard_deviation(v): return math.sqrt(variance(v))
+
+
 def main():
     random.seed(42)
     num_of_friends = [random.randint(1, 204) for _ in range(100)]
@@ -69,6 +72,9 @@ def main():
 
     variance_num_of_friends = variance(num_of_friends)
     print(variance_num_of_friends)
+
+    std_dev_num_of_friends = standard_deviation(num_of_friends)
+    print(std_dev_num_of_friends)
     # plt.show()
 
 
