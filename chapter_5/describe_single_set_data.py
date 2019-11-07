@@ -19,8 +19,8 @@ def mean(v): return sum(v) / len(v)
 
 
 def median(v):
-    v.sort()
-    return mean([v[len(v) // 2], v[len(v) // 2 + 1]]) if 0 == len(v) % 2 else v[len(v) // 2]
+    u = sorted(v)
+    return mean([u[len(u) // 2], u[len(u) // 2 + 1]]) if 0 == len(u) % 2 else u[len(u) // 2]
 
 
 def main():
