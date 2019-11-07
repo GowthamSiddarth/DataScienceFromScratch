@@ -15,7 +15,12 @@ def plot_friends_vs_people(num_of_friends, num_of_people):
     plt.draw()
 
 
-def mean(num_of_friends): return sum(num_of_friends) / len(num_of_friends)
+def mean(v): return sum(v) / len(v)
+
+
+def median(v):
+    v.sort()
+    return mean([v[len(v) // 2], v[len(v) // 2 + 1]]) if 0 == len(v) % 2 else v[len(v) // 2]
 
 
 def main():
@@ -26,6 +31,9 @@ def main():
 
     mean_num_of_friends = mean(num_of_friends)
     print(mean_num_of_friends)
+
+    median_num_of_friends = median(num_of_friends)
+    print(median_num_of_friends)
     plt.show()
 
 
