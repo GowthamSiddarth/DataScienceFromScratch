@@ -48,6 +48,9 @@ def variance(v): return sum_of_squares(dev_from_mean(v)) / (len(v) - 1)
 def standard_deviation(v): return math.sqrt(variance(v))
 
 
+def inter_quartile_range(v): return quantile(v, 0.75) - quantile(v, 0.25)
+
+
 def main():
     random.seed(42)
     num_of_friends = [random.randint(1, 204) for _ in range(100)]
@@ -75,6 +78,9 @@ def main():
 
     std_dev_num_of_friends = standard_deviation(num_of_friends)
     print(std_dev_num_of_friends)
+
+    inter_quartile_range_num_of_friends = inter_quartile_range(num_of_friends)
+    print(inter_quartile_range_num_of_friends)
     # plt.show()
 
 
