@@ -2,6 +2,8 @@ import random
 from collections import Counter
 from matplotlib import pyplot as plt
 
+from chapter_4.vector import sum_of_squares
+
 
 def plot_friends_vs_people(num_of_friends, num_of_people):
     friends_count = Counter(num_of_friends)
@@ -35,6 +37,14 @@ def mode(v):
 def data_range(v): return max(v) - min(v)
 
 
+def dev_from_mean(v):
+    v_mean = mean(v)
+    return [v_i - v_mean for v_i in v]
+
+
+def variance(v): return sum_of_squares(dev_from_mean(v)) / (len(v) - 1)
+
+
 def main():
     random.seed(42)
     num_of_friends = [random.randint(1, 204) for _ in range(100)]
@@ -57,6 +67,8 @@ def main():
     data_range_num_of_friends = data_range(num_of_friends)
     print(data_range_num_of_friends)
 
+    variance_num_of_friends = variance(num_of_friends)
+    print(variance_num_of_friends)
     # plt.show()
 
 
