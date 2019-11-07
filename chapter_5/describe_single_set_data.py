@@ -26,6 +26,12 @@ def median(v):
 def quantile(v, p): return sorted(v)[int(p * len(v))]
 
 
+def mode(v):
+    sorted_counts = Counter(v).most_common()
+    max_value = sorted_counts[0][1]
+    return [item[0] for item in sorted_counts if item[1] == max_value]
+
+
 def main():
     random.seed(42)
     num_of_friends = [random.randint(1, 204) for _ in range(100)]
@@ -42,6 +48,8 @@ def main():
     print(quantile(num_of_friends, 0.25))
     print(quantile(num_of_friends, 0.99))
 
+    mode_num_of_friends = mode(num_of_friends)
+    print(mode_num_of_friends)
     plt.show()
 
 
