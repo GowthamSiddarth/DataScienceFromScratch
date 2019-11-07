@@ -23,6 +23,9 @@ def median(v):
     return mean([u[len(u) // 2], u[len(u) // 2 + 1]]) if 0 == len(u) % 2 else u[len(u) // 2]
 
 
+def quantile(v, p): return sorted(v)[int(p * len(v))]
+
+
 def main():
     random.seed(42)
     num_of_friends = [random.randint(1, 204) for _ in range(100)]
@@ -34,6 +37,11 @@ def main():
 
     median_num_of_friends = median(num_of_friends)
     print(median_num_of_friends)
+
+    print(quantile(num_of_friends, 0.1))
+    print(quantile(num_of_friends, 0.25))
+    print(quantile(num_of_friends, 0.99))
+
     plt.show()
 
 
