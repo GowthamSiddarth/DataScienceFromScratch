@@ -2,7 +2,7 @@ import random, math
 from collections import Counter
 from matplotlib import pyplot as plt
 
-from chapter_4.vector import sum_of_squares
+from linear_algebra.vector import sum_of_squares
 
 
 def plot_friends_vs_people(num_of_friends, num_of_people):

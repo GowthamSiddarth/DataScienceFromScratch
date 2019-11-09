@@ -1,6 +1,6 @@
 import random
-from chapter_4.vector import dot_product
-from chapter_5.describe_single_set_data import dev_from_mean, standard_deviation
+from linear_algebra.vector import dot_product
+from statistics.describe_single_set_data import dev_from_mean, standard_deviation
 
 
 def covariance(x, y): return dot_product([dev_from_mean(x), dev_from_mean(y)]) / (len(x) - 1)
